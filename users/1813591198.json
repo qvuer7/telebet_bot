@@ -1,0 +1,23 @@
+{
+    "balance": 900.0,
+    "open_bets": [
+        {
+            "type": "PA",
+            "FI": "120278522",
+            "ID": "1115599170",
+            "IT": "6VP120278522-1115599170_1_1",
+            "N2": "X",
+            "NA": "Draw",
+            "OD": 3.4,
+            "OR": "1",
+            "SU": "0",
+            "FI_id": "120230582",
+            "home": "Deportivo Armenio Reserves",
+            "away": "UAI Urquiza Reserves",
+            "league": "Argentina Reserve League",
+            "score": "0-0",
+            "amount": "100"
+        }
+    ],
+    "closed_bets": []
+}

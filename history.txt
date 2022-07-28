@@ -1,0 +1,16 @@
+            '''
+            CHOOSING_LEAGUE: [MessageHandler(filters.Regex('^((?!Назад|Выйти).)*$'), choose_soccer_league),
+                              MessageHandler(filters.Regex('^(Назад)$'), find_game_by_category)],
+
+            CHOOSING_GAME_IN_LEAGUE: [MessageHandler(filters.Regex('^((?!Назад|Выйти).)*$'), choose_game_from_games),
+                                      MessageHandler(filters.Regex('^(Назад)$'), choosing_socer_league)],
+
+            PROCEEDING_WITH_BETTING: [MessageHandler(filters.Regex('^((?!Назад|Выйти).)*$'), choose_bet),
+                                      MessageHandler(filters.Regex('^(Назад)$'), choose_game_from_games)],
+
+            AMOUNT_TO_CHOOSE: [MessageHandler(filters.Regex('^(Подтвердить и выбрать сумму)$'), amount_for_bet),
+                             MessageHandler(filters.Regex('^(Назад)$'), choose_bet)],
+
+            AMOUNT_TO_BET: [MessageHandler(filters.Regex('^([\s\d]+)$'),second_bet_confiramtion),
+                            MessageHandler(filters.Regex('^(Назад)$'), amount_for_bet)]
+            '''

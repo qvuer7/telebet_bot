@@ -1,0 +1,66 @@
+process of gathering data from betsapi works in a manner:
+    1. getting match FI id from sport id and inplay_filter for inplay or upcoming event
+       example of url for inplay skipping esport for soccer:
+            url = f'https://api.b365api.com/v1/bet365/inplay_filter?token={TOKEN}&sport_id=1&skip_esports=1'
+       example of url for inplay with esport mathces for soccer:
+            url = f'https://api.b365api.com/v1/bet365/inplay_filter?token={TOKEN}&sport_id=1'
+
+       requests.get(url).json() returns json as dict with each game as separate object, games have following fields:
+            -league
+                -league name
+                -league id
+            -home
+                -home name
+                -home id
+            -away
+                -away name
+                -away id
+            -current score
+            -betsapi id
+            -r id
+            -event id
+            -FI id
+       see json_reader.py games soccer class for proper names of the fields.
+       the most important field from previous request is FI id event which is important for further odds info gathering
+    2. using following url possible to send a get request and receive a lot of fucking info about the game and ods:
+        url example for event id url = f"https://api.b365api.com/v1/bet365/event?token={TOKEN}&FI={game.FI_id}"
+        response as well consist of two fields 1 - succes or not, 2 - result, more interesting for us is result field
+        which is an array of dictionaries of correspondents types:
+            -SC - score, scores columns - info about game like yellow cards, corneres,
+
+            -MA - Market
+            -ES - Embedeed streaming
+            -TG - Team group
+            -MG - Market group
+            -TE - team
+            -PA - participant ods stored here!!
+            -EV - Event
+            -SL - Scores Cell
+            -SG - ?
+            -ST - ?
+
+    inplay australian soccre odds:
+        1. Fulltime result
+        2. Double chance
+        3.To Qualify
+        4.1st Goal
+        5.Match goals
+        6.lternative match goals
+        7.method of victory
+        8.game won in extra time
+        9.game won after penalties
+        10.asian handicap
+        11.goal line
+        12.final score
+        13.3 way handicap
+        14.draw no bet
+        15. last team score
+        16. goals odd -even
+        17. results/both team scores
+        18. both team to score
+        19. team clean sheet
+        20. 1st team exact goals
+        21. 2nd team exact goals
+        22. 1st team over under goals
+        23. 2nd team over under goals
+        24. team to score in second half
